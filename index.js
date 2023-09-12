@@ -6,8 +6,8 @@ import Person from './models/Person.js';
 import { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person.js';
 
 
-app.use(bodyParser.json());
 const app = express();
+app.use(bodyParser.json());
 app.use(json());
 app.use(cors());
 
