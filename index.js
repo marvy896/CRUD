@@ -2,7 +2,7 @@ import express from 'express';
 import { connect } from 'mongoose';
 import { json } from 'body-parser';
 import cors from 'cors';
-import Person from './models/Person';
+import Person, { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person';
 
 
 const app = express();
@@ -15,7 +15,6 @@ connect('mongodb://localhost/marvy', {
   useUnifiedTopology: true,
 });
 
-import Person, { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person';
 
 // Create a new person
 app.post('/api/people', async (req, res) => {
