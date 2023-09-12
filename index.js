@@ -8,7 +8,6 @@ import { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person.
 
 const app = express();
 app.use(bodyParser.json());
-app.use(json());
 app.use(cors());
 
 const PORT = process.env.PORT || 3000;
