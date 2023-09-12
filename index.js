@@ -2,6 +2,9 @@ import express from 'express';
 import { connect } from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import Person from './models/Person.js';
+import { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person.js';
+
 
 app.use(bodyParser.json());
 const app = express();
@@ -13,8 +16,6 @@ connect('mongodb://localhost/marvy', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-import Person, { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person.js';
 
 // Create a new person
 app.post('/api/people', async (req, res) => {
