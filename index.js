@@ -2,7 +2,7 @@ import express from 'express';
 import { connect } from 'mongoose';
 import { json } from 'body-parser';
 import cors from 'cors';
-import Person, { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person';
+import Person, { findById, findByIdAndUpdate, findByIdAndRemove } from './models/Person.js';
 
 
 const app = express();
