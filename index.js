@@ -2,6 +2,8 @@ import express from 'express';
 import { connect } from 'mongoose';
 import { json } from 'body-parser';
 import cors from 'cors';
+import Person from './models/Person';
+
 
 const app = express();
 app.use(json());
