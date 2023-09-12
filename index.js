@@ -1,9 +1,9 @@
 import express from 'express';
 import { connect } from 'mongoose';
-import { json } from 'body-parser';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 
-
+app.use(bodyParser.json());
 const app = express();
 app.use(json());
 app.use(cors());
