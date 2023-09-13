@@ -1,5 +1,5 @@
 {
-  "name": "hng-stage2",
+  "name": "CRUD",
   "version": "1.0.0",
   "description": "A CRUD API for HNG-Stage2 Task",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "node app.js",
     "server": "nodemon app.js"
   },
-  "author": "Favour Markson",
+  "author": "Azubuko Kene",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
