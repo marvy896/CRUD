@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: HNG-Stage2 CRUD API
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://crudh.onrender.com/
+  variables: {}
+paths:
+  /api:
+    post:
+      tags:
+      - Person
+      summary: Add a new person
+      operationId: Addanewperson
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/AddanewpersonRequest'
+              - example:
+                  name: Azubuko Kene
+            example:
+              name: Azubuko Kene
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The Job ID
+    get:
+      tags:
+      - Person
+      summary: Fetch details of a person
+      operationId: Fetchdetailsofaperson
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    patch:
+      tags:
+      - Person
+      summary: Modifying details of an existing person
+      operationId: Modifyingdetailsofanexistingperson
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/ModifyingdetailsofanexistingpersonRequest'
+              - example:
+                  name: Okafor Kene
+            example:
+              name:  Okafor Kene
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+      - Person
+      summary: Remove a person
+      operationId: Removeaperson
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    AddanewpersonRequest:
+      title: AddanewpersonRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Favour Markson
+    ModifyingdetailsofanexistingpersonRequest:
+      title: ModifyingdetailsofanexistingpersonRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name:  Okafor Kene
+tags:
+- name: Person
+  description: ''
