@@ -1,24 +1,24 @@
-const dotenv = require('dotenv');
-dotenv.config({path: './config/config.env'});
-const express = require('express');
-const bodyParser = require('body-parser');
+import { config } from 'dotenv';
+config({path: './config/config.env'});
+import express from 'express';
+import { json } from 'body-parser';
 
 const app = express();
-app.use(bodyParser.json());
-const cors = require('cors')
+app.use(json());
+import cors from 'cors';
 
 // connect to database
-const connectDB = require('./database/connect');
+import connectDB from './database/connect';
 
 // routes
-const person = require('./routes/person');
+import person from './routes/person';
 
 app.use(cors())
 
 // swagger
-const swaggerUI = require('swagger-ui-express')
-const YAML = require('yamljs')
-const swaggerDocument = YAML.load('./swagger.yaml')
+import { serve, setup } from 'swagger-ui-express';
+import { load } from 'yamljs';
+const swaggerDocument = load('./swagger.yaml')
 
 
 
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     res.send('<h1>HNG-Stgae2 CRUD API </h1><a href="/api-docs">Documentation</a>')
   });
 
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
+app.use('/api-docs', serve, setup(swaggerDocument))
 
 app.use('/api', person);
 

@@ -1,9 +1,9 @@
-const Person = require('../models/Person');
+import { create, findById, findByIdAndUpdate, findByIdAndDelete } from '../models/Person';
 
 const createPerson = async (req, res) => {
     // Get name from request body
     const { name } = req.body;
-    const person = await Person.create({ name });
+    const person = await create({ name });
     res.status(201).json({ person });
 };
 
@@ -12,7 +12,7 @@ const getPerson = async (req, res) => {
     const PersonId = req.params.id;
     try {
         // Find person in the database
-        const person = await Person.findById(PersonId);
+        const person = await findById(PersonId);
         // Validate if person is found
         if (person) {
             res.status(200).json({ person });
@@ -33,7 +33,7 @@ const updatePerson = async (req, res) => {
             return res.status(400).json({ message: 'Invalid data' });
         }
         // Find and update person in the database
-        const updatedPerson = await Person.findByIdAndUpdate(
+        const updatedPerson = await findByIdAndUpdate(
             personId,
             { name },
             { new: true }
@@ -53,7 +53,7 @@ const deletePerson = async (req, res) => {
     const personId = req.params.id;
     try {
         // Find and delete person in the database
-        const deletedPerson = await Person.findByIdAndDelete(personId);
+        const deletedPerson = await findByIdAndDelete(personId);
         // Validate if person is found
         if (deletedPerson) {
             res.status(200).json({ person: deletedPerson });
@@ -66,7 +66,7 @@ const deletePerson = async (req, res) => {
 }};
 
 
-module.exports = {
+export default {
     createPerson,
     getPerson, 
     updatePerson,
