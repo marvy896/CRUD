@@ -1,18 +1,17 @@
-import { create, findById, findByIdAndUpdate, findByIdAndDelete } from '../models/Person';
+import Person from '../models/Person.js';
 
 const createPerson = async (req, res) => {
     // Get name from request body
     const { name } = req.body;
-    const person = await create({ name });
+    const person = await Person.create({ name });
     res.status(201).json({ person });
 };
-
 
 const getPerson = async (req, res) => {
     const PersonId = req.params.id;
     try {
         // Find person in the database
-        const person = await findById(PersonId);
+        const person = await Person.findById(PersonId);
         // Validate if person is found
         if (person) {
             res.status(200).json({ person });
@@ -22,7 +21,8 @@ const getPerson = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err.message });
-}};
+    }
+};
 
 const updatePerson = async (req, res) => {
     const personId = req.params.id;
@@ -33,7 +33,7 @@ const updatePerson = async (req, res) => {
             return res.status(400).json({ message: 'Invalid data' });
         }
         // Find and update person in the database
-        const updatedPerson = await findByIdAndUpdate(
+        const updatedPerson = await Person.findByIdAndUpdate(
             personId,
             { name },
             { new: true }
@@ -47,13 +47,14 @@ const updatePerson = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err.message });
-}};
+    }
+};
 
 const deletePerson = async (req, res) => {
     const personId = req.params.id;
     try {
         // Find and delete person in the database
-        const deletedPerson = await findByIdAndDelete(personId);
+        const deletedPerson = await Person.findByIdAndDelete(personId);
         // Validate if person is found
         if (deletedPerson) {
             res.status(200).json({ person: deletedPerson });
@@ -63,12 +64,7 @@ const deletePerson = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err.message });
-}};
-
-
-export default {
-    createPerson,
-    getPerson, 
-    updatePerson,
-    deletePerson,
+    }
 };
+
+export { createPerson, getPerson, updatePerson, deletePerson };
