@@ -1,10 +1,10 @@
-import { Schema, model } from 'mongoose';
+const mongoose = require('mongoose');
 
-const PersonSchema = new Schema({
+const PersonSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Please provide a name']
         },
     });
 
-export default model('Person', PersonSchema);
+module.exports = mongoose.model('Person', PersonSchema);

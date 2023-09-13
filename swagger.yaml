@@ -22,9 +22,9 @@ paths:
               allOf:
               - $ref: '#/components/schemas/AddanewpersonRequest'
               - example:
-                  name: Azubuko Kene
+                  name: Favour Markson
             example:
-              name: Azubuko Kene
+              name: Favour Markson
         required: true
       responses:
         '200':
@@ -64,9 +64,9 @@ paths:
               allOf:
               - $ref: '#/components/schemas/ModifyingdetailsofanexistingpersonRequest'
               - example:
-                  name: Okafor Kene
+                  name: Azubuko Kene
             example:
-              name:  Okafor Kene
+              name: Azubuko Kene
         required: true
       responses:
         '200':
@@ -95,7 +95,7 @@ components:
         name:
           type: string
       example:
-        name: Favour Markson
+        name: Azu Onyedika
     ModifyingdetailsofanexistingpersonRequest:
       title: ModifyingdetailsofanexistingpersonRequest
       required:
@@ -105,7 +105,7 @@ components:
         name:
           type: string
       example:
-        name:  Okafor Kene
+        name: Azu Onyedika
 tags:
 - name: Person
   description: ''

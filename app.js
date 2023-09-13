@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 const cors = require('cors')
 
 // connect to database
-const connectDB = require('./Database/connect');
+const connectDB = require('./database/connect');
 
 // routes
 const person = require('./routes/person');
@@ -44,3 +44,4 @@ const start = async () => {
 };
 
 start();
+
