@@ -4,7 +4,7 @@ info:
   contact: {}
   version: '1.0'
 servers:
-- url: https://crudh.onrender.com/
+- url: https://taskapi-whpy.onrender.com
   variables: {}
 paths:
   /api:
@@ -22,9 +22,9 @@ paths:
               allOf:
               - $ref: '#/components/schemas/AddanewpersonRequest'
               - example:
-                  name: Favour Markson
+                  name: Azubuko Kene
             example:
-              name: Favour Markson
+              name: Azubuko Kene
         required: true
       responses:
         '200':
